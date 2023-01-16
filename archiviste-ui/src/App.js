@@ -17,13 +17,18 @@ function App() {
 
   return (
       <div>
-        {(typeof data.members === 'undefined') ? (
+        {(typeof data.datasets === 'undefined') ? (
           <p>Loading...</p>
         ) : (
-          data.members.map((member, i) => (
-            <p key={i}>{member}</p>
-          ))
-        )} 
+          data.datasets.map((datasetObj, index) => {
+            return (
+              [
+              <h3 key={datasetObj.name}>name: {datasetObj.name}</h3>,
+              <p  key={datasetObj.description}> desc: {datasetObj.description}</p>,
+              <p  key={datasetObj.owner}> owner: {datasetObj.owner}</p>
+              ]
+            )
+          }))}
       </div>
   )
 }
